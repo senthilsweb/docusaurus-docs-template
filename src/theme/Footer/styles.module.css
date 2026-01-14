@@ -1,0 +1,139 @@
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  padding: 4rem 2rem 3rem;
+}
+
+:global([data-theme='dark']) .footer {
+  background-color: #1a1a1a;
+  border-top-color: #333;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}
+
+/* Logo Section - Left side */
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logoLink {
+  display: inline-block;
+}
+
+.logo {
+  height: 28px;
+  width: auto;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: #888;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+:global([data-theme='dark']) .copyright {
+  color: #666;
+}
+
+/* Links Container */
+.linksContainer {
+  display: flex;
+  gap: 5rem;
+}
+
+@media (max-width: 768px) {
+  .linksContainer {
+    flex-wrap: wrap;
+    gap: 2.5rem;
+  }
+}
+
+/* Each Column */
+.column {
+  min-width: 100px;
+}
+
+.columnTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+}
+
+:global([data-theme='dark']) .columnTitle {
+  color: #e0e0e0;
+}
+
+/* Links List */
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linksList li {
+  margin-bottom: 0.5rem;
+}
+
+.linksList a {
+  font-size: 0.875rem;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.linksList a:hover {
+  color: #E94560;
+  text-decoration: none;
+}
+
+:global([data-theme='dark']) .linksList a {
+  color: #888;
+}
+
+:global([data-theme='dark']) .linksList a:hover {
+  color: #E94560;
+}
+
+/* Social Icons */
+.socialIcons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.socialIcons a:hover {
+  color: #E94560;
+}
+
+:global([data-theme='dark']) .socialIcons a {
+  color: #888;
+}
+
+:global([data-theme='dark']) .socialIcons a:hover {
+  color: #E94560;
+}

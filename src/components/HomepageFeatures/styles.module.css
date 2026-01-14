@@ -1,0 +1,132 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
+  background: #f8f9fa;
+}
+
+[data-theme='dark'] .features {
+  background: #0d0d15;
+}
+
+.featuresRow {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.featureCol {
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+}
+
+.featureLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.featureLink:hover {
+  text-decoration: none;
+}
+
+.featureCard {
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.featureCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Purple gradient */
+.purple {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #6366f1 100%);
+}
+
+/* Pink gradient */
+.pink {
+  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 50%, #ef4444 100%);
+}
+
+/* Orange gradient */
+.orange {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ea580c 100%);
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.featureDescription {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.featureButton {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.purple .featureButton {
+  background: #1e1b4b;
+  color: #ffffff;
+}
+
+.purple .featureButton:hover {
+  background: #312e81;
+}
+
+.pink .featureButton {
+  background: #881337;
+  color: #ffffff;
+}
+
+.pink .featureButton:hover {
+  background: #9f1239;
+}
+
+.orange .featureButton {
+  background: #7c2d12;
+  color: #ffffff;
+}
+
+.orange .featureButton:hover {
+  background: #9a3412;
+}
+
+@media (max-width: 996px) {
+  .featuresRow {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .featureCol {
+    width: 100%;
+    max-width: 400px;
+  }
+}

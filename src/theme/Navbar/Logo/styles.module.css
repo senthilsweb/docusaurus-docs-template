@@ -1,0 +1,23 @@
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logoLink:hover {
+  text-decoration: none;
+}
+
+.logo {
+  height: 32px;
+  width: 32px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ifm-navbar-link-color);
+  letter-spacing: -0.02em;
+}

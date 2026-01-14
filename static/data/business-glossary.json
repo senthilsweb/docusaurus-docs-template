@@ -1,0 +1,81 @@
+[
+  {
+    "domain": "API",
+    "glossary": "Technical Terms",
+    "term": "API",
+    "definition": "Application Programming Interface - a set of protocols and tools for building software applications.",
+    "abbreviation": "API"
+  },
+  {
+    "domain": "API",
+    "glossary": "Technical Terms",
+    "term": "REST",
+    "definition": "Representational State Transfer - an architectural style for designing networked applications.",
+    "abbreviation": "REST"
+  },
+  {
+    "domain": "API",
+    "glossary": "Technical Terms",
+    "term": "Endpoint",
+    "definition": "A specific URL where an API can be accessed and receive requests."
+  },
+  {
+    "domain": "Authentication",
+    "glossary": "Security Terms",
+    "term": "Bearer Token",
+    "definition": "A type of access token that grants the bearer access to protected resources."
+  },
+  {
+    "domain": "Authentication",
+    "glossary": "Security Terms",
+    "term": "OAuth",
+    "definition": "An open standard for access delegation, commonly used for token-based authentication.",
+    "abbreviation": "OAuth"
+  },
+  {
+    "domain": "Data",
+    "glossary": "Data Terms",
+    "term": "JSON",
+    "definition": "JavaScript Object Notation - a lightweight data interchange format.",
+    "abbreviation": "JSON"
+  },
+  {
+    "domain": "Data",
+    "glossary": "Data Terms",
+    "term": "Schema",
+    "definition": "A formal description of the structure and constraints of data."
+  },
+  {
+    "domain": "Data",
+    "glossary": "Data Terms",
+    "term": "Query",
+    "definition": "A request for data or information from a database or API."
+  },
+  {
+    "domain": "Infrastructure",
+    "glossary": "Infrastructure Terms",
+    "term": "SDK",
+    "definition": "Software Development Kit - a collection of tools and libraries for building applications.",
+    "abbreviation": "SDK"
+  },
+  {
+    "domain": "Infrastructure",
+    "glossary": "Infrastructure Terms",
+    "term": "CDN",
+    "definition": "Content Delivery Network - a distributed network of servers that delivers content based on geographic location.",
+    "abbreviation": "CDN"
+  },
+  {
+    "domain": "Development",
+    "glossary": "Development Terms",
+    "term": "CI/CD",
+    "definition": "Continuous Integration/Continuous Deployment - practices for automating software delivery.",
+    "abbreviation": "CI/CD"
+  },
+  {
+    "domain": "Development",
+    "glossary": "Development Terms",
+    "term": "Semantic Versioning",
+    "definition": "A versioning scheme using MAJOR.MINOR.PATCH format to convey meaning about underlying changes."
+  }
+]

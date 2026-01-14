@@ -1,0 +1,8 @@
+{
+  "label": "MalloyData Agentic AI",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "description": "Semantic layer for analytics with Malloy-style queries via MCP."
+  }
+}

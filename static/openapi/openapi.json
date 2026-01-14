@@ -1,0 +1,555 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Semantic Analytics API",
+    "description": "A REST API for semantic data modeling and analytics queries. This API provides endpoints for discovering available models, executing analytical queries, and leveraging AI-powered natural language interfaces.\n\n## Features\n\n- **Model Discovery**: List and explore available semantic models\n- **Query Execution**: Execute analytical queries with filtering and aggregation\n- **AI-Powered Chat**: Natural language query interface\n- **Health Monitoring**: Service health and status endpoints",
+    "version": "2.0.0",
+    "contact": {
+      "name": "API Support",
+      "email": "api@example.com",
+      "url": "https://docs.example.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8006",
+      "description": "Local development server"
+    },
+    {
+      "url": "https://api.example.com",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Health",
+      "description": "Service health and status endpoints"
+    },
+    {
+      "name": "Models",
+      "description": "Semantic model discovery and schema endpoints"
+    },
+    {
+      "name": "Query",
+      "description": "Query execution endpoints"
+    },
+    {
+      "name": "Chat",
+      "description": "AI-powered natural language interface"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": ["Health"],
+        "summary": "Health check",
+        "description": "Returns the current health status of the service",
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                },
+                "example": {
+                  "status": "healthy",
+                  "service": "analytics-api",
+                  "version": "2.0.0",
+                  "tools_count": 6
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/models": {
+      "get": {
+        "tags": ["Models"],
+        "summary": "List available models",
+        "description": "Returns a list of all available semantic models with their metadata",
+        "operationId": "listModels",
+        "responses": {
+          "200": {
+            "description": "List of models",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelsListResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/models/{modelName}": {
+      "get": {
+        "tags": ["Models"],
+        "summary": "Get model schema",
+        "description": "Returns the detailed schema for a specific semantic model including dimensions, measures, and time dimensions",
+        "operationId": "getModelSchema",
+        "parameters": [
+          {
+            "name": "modelName",
+            "in": "path",
+            "required": true,
+            "description": "The name of the model to retrieve",
+            "schema": {
+              "type": "string"
+            },
+            "example": "sales_data"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Model schema",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Model not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/query": {
+      "post": {
+        "tags": ["Query"],
+        "summary": "Execute query",
+        "description": "Execute an analytical query against a semantic model",
+        "operationId": "executeQuery",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              },
+              "example": {
+                "measures": ["sales_data.total_revenue", "sales_data.order_count"],
+                "dimensions": ["sales_data.category", "sales_data.region"],
+                "timeDimensions": [
+                  {
+                    "dimension": "sales_data.order_date",
+                    "granularity": "month",
+                    "dateRange": ["2025-01-01", "2025-12-31"]
+                  }
+                ],
+                "filters": [
+                  {
+                    "member": "sales_data.status",
+                    "operator": "equals",
+                    "values": ["completed"]
+                  }
+                ],
+                "limit": 100
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Query results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat": {
+      "post": {
+        "tags": ["Chat"],
+        "summary": "Natural language query",
+        "description": "Execute an analytical query using natural language. The AI will interpret the query and execute it against the appropriate model.",
+        "operationId": "chat",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatRequest"
+              },
+              "example": {
+                "message": "Show me total revenue by category for last quarter",
+                "model": "sales_data"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat response with query results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HealthResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["healthy", "degraded", "unhealthy"]
+          },
+          "service": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "tools_count": {
+            "type": "integer"
+          }
+        },
+        "required": ["status", "service", "version"]
+      },
+      "ModelsListResponse": {
+        "type": "object",
+        "properties": {
+          "models": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModelSummary"
+            }
+          }
+        }
+      },
+      "ModelSummary": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Unique identifier for the model"
+          },
+          "title": {
+            "type": "string",
+            "description": "Human-readable title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Model description"
+          },
+          "dimensionsCount": {
+            "type": "integer",
+            "description": "Number of dimensions"
+          },
+          "measuresCount": {
+            "type": "integer",
+            "description": "Number of measures"
+          },
+          "timeDimensionsCount": {
+            "type": "integer",
+            "description": "Number of time dimensions"
+          }
+        },
+        "required": ["name", "title"]
+      },
+      "ModelSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dimensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dimension"
+            }
+          },
+          "measures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Measure"
+            }
+          },
+          "time_dimensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TimeDimension"
+            }
+          }
+        },
+        "required": ["name", "dimensions", "measures"]
+      },
+      "Dimension": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["string", "number", "boolean"]
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "type"]
+      },
+      "Measure": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["count", "sum", "avg", "min", "max", "countDistinct"]
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "type"]
+      },
+      "TimeDimension": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["time"]
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "type"]
+      },
+      "QueryRequest": {
+        "type": "object",
+        "properties": {
+          "measures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of measures to include"
+          },
+          "dimensions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of dimensions to group by"
+          },
+          "timeDimensions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TimeDimensionQuery"
+            },
+            "description": "Time dimension configurations"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            },
+            "description": "Query filters"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 100,
+            "description": "Maximum number of results"
+          },
+          "offset": {
+            "type": "integer",
+            "default": 0,
+            "description": "Number of results to skip"
+          }
+        },
+        "required": ["measures"]
+      },
+      "TimeDimensionQuery": {
+        "type": "object",
+        "properties": {
+          "dimension": {
+            "type": "string"
+          },
+          "granularity": {
+            "type": "string",
+            "enum": ["day", "week", "month", "quarter", "year"]
+          },
+          "dateRange": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "required": ["dimension"]
+      },
+      "Filter": {
+        "type": "object",
+        "properties": {
+          "member": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string",
+            "enum": ["equals", "notEquals", "contains", "notContains", "gt", "gte", "lt", "lte", "set", "notSet"]
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["member", "operator"]
+      },
+      "QueryResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "annotation": {
+            "type": "object",
+            "properties": {
+              "measures": {
+                "type": "object"
+              },
+              "dimensions": {
+                "type": "object"
+              }
+            }
+          },
+          "query": {
+            "type": "object",
+            "description": "The executed query"
+          }
+        },
+        "required": ["data"]
+      },
+      "ChatRequest": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Natural language query"
+          },
+          "model": {
+            "type": "string",
+            "description": "Optional: specific model to query"
+          },
+          "conversationId": {
+            "type": "string",
+            "description": "Optional: conversation ID for context"
+          }
+        },
+        "required": ["message"]
+      },
+      "ChatResponse": {
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "string",
+            "description": "AI-generated response"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Query results if applicable"
+          },
+          "query": {
+            "type": "object",
+            "description": "The generated query"
+          },
+          "conversationId": {
+            "type": "string"
+          }
+        },
+        "required": ["response"]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "details": {
+            "type": "object",
+            "description": "Additional error details"
+          }
+        },
+        "required": ["error"]
+      }
+    }
+  }
+}

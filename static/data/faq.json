@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "title": "Frequently Asked Questions",
+    "description": "Common questions and answers about the platform",
+    "lastUpdated": "2026-01-01",
+    "version": "1.0.0"
+  },
+  "categories": [
+    {
+      "id": "general",
+      "name": "General",
+      "slug": "general",
+      "description": "General questions about the platform",
+      "order": 1,
+      "enabled": true
+    },
+    {
+      "id": "getting-started",
+      "name": "Getting Started",
+      "slug": "getting-started",
+      "description": "Questions about setting up and starting",
+      "order": 2,
+      "enabled": true
+    },
+    {
+      "id": "api",
+      "name": "API & Integration",
+      "slug": "api",
+      "description": "Questions about the API and integrations",
+      "order": 3,
+      "enabled": true
+    },
+    {
+      "id": "troubleshooting",
+      "name": "Troubleshooting",
+      "slug": "troubleshooting",
+      "description": "Common issues and solutions",
+      "order": 4,
+      "enabled": true
+    }
+  ],
+  "faqs": [
+    {
+      "id": "what-is-this",
+      "categoryId": "general",
+      "question": "What is this platform?",
+      "answer": "This is a sample documentation platform built with Docusaurus. Replace this content with information about your actual product or service.",
+      "order": 1,
+      "enabled": true,
+      "featured": true
+    },
+    {
+      "id": "who-is-it-for",
+      "categoryId": "general",
+      "question": "Who is this platform for?",
+      "answer": "This platform is designed for developers, technical writers, and teams who need comprehensive documentation. Customize this answer for your target audience.",
+      "order": 2,
+      "enabled": true,
+      "featured": false
+    },
+    {
+      "id": "how-to-start",
+      "categoryId": "getting-started",
+      "question": "How do I get started?",
+      "answer": "To get started, follow our Getting Started guide in the documentation. It covers installation, configuration, and your first steps with the platform.",
+      "order": 1,
+      "enabled": true,
+      "featured": true
+    },
+    {
+      "id": "system-requirements",
+      "categoryId": "getting-started",
+      "question": "What are the system requirements?",
+      "answer": "The platform requires Node.js 20 or higher. For detailed requirements, check the deployment guide.",
+      "order": 2,
+      "enabled": true,
+      "featured": false
+    },
+    {
+      "id": "api-authentication",
+      "categoryId": "api",
+      "question": "How does API authentication work?",
+      "answer": "The API uses bearer token authentication. You can generate API tokens from your account settings. Include the token in the Authorization header of your requests.",
+      "order": 1,
+      "enabled": true,
+      "featured": true
+    },
+    {
+      "id": "rate-limits",
+      "categoryId": "api",
+      "question": "What are the API rate limits?",
+      "answer": "API rate limits depend on your plan. Free tier: 100 requests/minute. Pro tier: 1000 requests/minute. Enterprise: Unlimited.",
+      "order": 2,
+      "enabled": true,
+      "featured": false
+    },
+    {
+      "id": "common-errors",
+      "categoryId": "troubleshooting",
+      "question": "Why am I getting a 500 error?",
+      "answer": "A 500 error indicates a server-side issue. Check your request format, ensure all required fields are provided, and verify your authentication token is valid.",
+      "order": 1,
+      "enabled": true,
+      "featured": false
+    },
+    {
+      "id": "support",
+      "categoryId": "troubleshooting",
+      "question": "How can I get support?",
+      "answer": "For support, you can: 1) Check our documentation, 2) Search existing GitHub issues, 3) Open a new issue on GitHub, or 4) Contact support@example.com for enterprise customers.",
+      "order": 2,
+      "enabled": true,
+      "featured": false
+    }
+  ]
+}

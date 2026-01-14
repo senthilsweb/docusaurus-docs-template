@@ -1,0 +1,226 @@
+.container {
+  max-width: 100%;
+}
+
+.loading,
+.error {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  color: #dc2626;
+}
+
+/* Category Tabs */
+.categoryTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.categoryTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
+  background: #fff;
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryTab:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.categoryTab.active {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.categoryTab .count {
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.categoryTab.active .count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* FAQ List */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.faqItem {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: #ccc;
+}
+
+.faqItem.open {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  transition: background 0.2s ease;
+}
+
+.faqQuestion:hover {
+  background: #fafafa;
+}
+
+.faqItem.open .faqQuestion {
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, white);
+}
+
+.questionText {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.faqItem.open .icon {
+  color: var(--ifm-color-primary);
+}
+
+.faqAnswer {
+  padding: 0 1.25rem 1.25rem;
+  background: #fff;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faqAnswer p {
+  margin: 0;
+  color: #444;
+  line-height: 1.6;
+}
+
+.categoryBadge {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: #f3f4f6;
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+}
+
+.noResults {
+  padding: 3rem;
+  text-align: center;
+  color: #666;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+/* Dark mode */
+:global([data-theme='dark']) .categoryTab {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #aaa;
+}
+
+:global([data-theme='dark']) .categoryTab:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+:global([data-theme='dark']) .categoryTab.active {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+:global([data-theme='dark']) .faqItem {
+  border-color: #444;
+}
+
+:global([data-theme='dark']) .faqItem.open {
+  border-color: var(--ifm-color-primary);
+}
+
+:global([data-theme='dark']) .faqQuestion {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+:global([data-theme='dark']) .faqQuestion:hover {
+  background: #333;
+}
+
+:global([data-theme='dark']) .faqItem.open .faqQuestion {
+  background: color-mix(in srgb, var(--ifm-color-primary) 15%, #2a2a2a);
+}
+
+:global([data-theme='dark']) .faqAnswer {
+  background: #2a2a2a;
+}
+
+:global([data-theme='dark']) .faqAnswer p {
+  color: #ccc;
+}
+
+:global([data-theme='dark']) .categoryBadge {
+  background: #333;
+  color: #aaa;
+}
+
+:global([data-theme='dark']) .noResults {
+  background: #2a2a2a;
+  color: #888;
+}
+
+:global([data-theme='dark']) .categoryTabs {
+  border-bottom-color: #444;
+}
