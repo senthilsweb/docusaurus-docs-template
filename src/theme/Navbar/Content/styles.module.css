@@ -1,0 +1,63 @@
+/*
+ * 3-column navbar layout: Logo | Nav Links (centered) | Actions
+ * Uses flexbox without absolute positioning to avoid breaking mobile sidebar
+ */
+
+/* Left section: Logo + mobile toggle */
+.navbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Center section: Nav links - uses margin auto to center */
+.navbarCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Right section: Actions (theme, search) */
+.navbarRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Ensure right section items don't overlap */
+.navbarRight > * {
+  flex-shrink: 0;
+}
+
+/* Hide color mode toggle and center nav on mobile */
+@media (max-width: 996px) {
+  .colorModeToggle {
+    display: none;
+  }
+  
+  /* On mobile, hide center nav - items show in mobile sidebar */
+  .navbarCenter {
+    display: none !important;
+  }
+  
+  .navbarLeft {
+    gap: 0.25rem;
+  }
+  
+  /* Right section on mobile - proper spacing */
+  .navbarRight {
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+  
+  .navbarRight > * {
+    display: flex;
+    align-items: center;
+  }
+}

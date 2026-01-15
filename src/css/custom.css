@@ -103,45 +103,24 @@ a, button, .navbar__link, .menu__link {
 .navbar {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  z-index: 200;
 }
 
 .navbar > .container,
-.navbar > .container-fluid,
-.navbar__inner {
+.navbar > .container-fluid {
   max-width: 100%;
   padding: 0;
 }
 
-/* Navbar brand alignment with sidebar */
+/* Navbar brand */
 .navbar__brand {
-  width: auto;
-  min-width: auto;
-  margin-left: 0;
-  margin-right: 1.5rem;
-  padding-left: 0;
-  padding-right: 0;
-  box-sizing: border-box;
+  margin-right: 1rem;
   flex-shrink: 0;
 }
 
-.navbar--sidebar-show .navbar__brand {
-  width: auto;
-  min-width: auto;
-}
-
-@media (max-width: 996px) {
-  .navbar {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .navbar__brand {
-    width: auto;
-    min-width: auto;
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 1rem;
-  }
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 @media (min-width: 1440px) {
@@ -149,21 +128,13 @@ a, button, .navbar__link, .menu__link {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-  
-  .navbar__brand {
-    width: auto;
-    min-width: auto;
-    margin-right: 2rem;
+}
+
+@media (max-width: 996px) {
+  .navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-}
-
-.navbar__items--left {
-  padding-left: 0;
-}
-
-.navbar__title {
-  font-weight: 700;
-  letter-spacing: -0.02em;
 }
 
 /* Navbar active/selected link */
@@ -180,34 +151,6 @@ a, button, .navbar__link, .menu__link {
 .navbar__item .navbar__link[aria-current="page"]:hover {
   background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 80%, white) 0%, var(--accent-color) 100%);
   color: white !important;
-}
-
-/* Navbar items alignment - push nav links to right side */
-.navbar__inner {
-  display: flex !important;
-  width: 100%;
-}
-
-/* Brand pushes everything else to the right */
-.navbar__brand {
-  margin-right: auto !important;
-}
-
-/* Left container: nav links grouped on the right */
-.navbar__items:not(.navbar__items--right) {
-  flex: 1 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 0.25rem !important;
-}
-
-/* Right container: theme/search - stays fixed width */
-.navbar__items--right {
-  flex: 0 0 auto !important;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  margin-left: 1rem;
 }
 
 /* ============================================
