@@ -1,11 +1,10 @@
 # ════════════════════════════════════════════════════════════════════════════
-# Makefile for docs.zynomi.com (Docusaurus)
+# Makefile for Docusaurus Documentation Site
 # ════════════════════════════════════════════════════════════════════════════
-# Author: Senthilnathan Karuppaiah
 # Date: December 2025
 #
 # DESCRIPTION:
-#   This Makefile provides commands to manage the Zynomi documentation site
+#   This Makefile provides commands to manage the documentation site
 #   built with Docusaurus, including local development and Vercel deployment.
 #
 # QUICK START:
@@ -26,7 +25,7 @@
 
 help:
 	@echo "════════════════════════════════════════════════════════════════"
-	@echo "  docs.zynomi.com (Docusaurus) - Commands"
+	@echo "  Docusaurus Documentation Site - Commands"
 	@echo "════════════════════════════════════════════════════════════════"
 	@echo ""
 	@echo "Usage: make <target>"
@@ -61,7 +60,7 @@ setup:
 
 status:
 	@echo "════════════════════════════════════════════════════════════════"
-	@echo "  docs.zynomi.com - Current Configuration"
+	@echo "  Documentation Site - Current Configuration"
 	@echo "════════════════════════════════════════════════════════════════"
 	@echo ""
 	@echo "📁 Environment:"

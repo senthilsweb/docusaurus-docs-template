@@ -14,21 +14,21 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'User Guide',
-    description: 'Learn how to use the Zynomi platform effectively. From patient management to trial workflows, get started with our comprehensive user documentation.',
+    description: 'Learn how to use the platform effectively. Get started with our comprehensive user documentation and step-by-step tutorials.',
     buttonText: 'Start Learning',
     link: '/docs/getting-started',
     gradient: 'purple',
   },
   {
     title: 'Developer Guide',
-    description: 'Integrate with Zynomi APIs, understand the architecture, and build custom solutions with our detailed developer documentation and code examples.',
+    description: 'Integrate with our APIs, understand the architecture, and build custom solutions with our detailed developer documentation and code examples.',
     buttonText: 'Start Building',
     link: '/docs/architecture-overview',
     gradient: 'pink',
   },
   {
     title: 'API Reference',
-    description: 'Complete API documentation with endpoints, request/response schemas, authentication guides, and interactive examples for all Zynomi services.',
+    description: 'Complete API documentation with endpoints, request/response schemas, authentication guides, and interactive examples for all services.',
     buttonText: 'Explore APIs',
     link: '/api-reference',
     gradient: 'orange',
