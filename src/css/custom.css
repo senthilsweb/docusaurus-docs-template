@@ -182,21 +182,32 @@ a, button, .navbar__link, .menu__link {
   color: white !important;
 }
 
-/* Navbar items alignment */
-.navbar__items {
-  flex: 1;
-  display: flex;
-  align-items: center;
+/* Navbar items alignment - push nav links to right side */
+.navbar__inner {
+  display: flex !important;
+  width: 100%;
 }
 
-.navbar__items--left {
-  justify-content: flex-start;
-  gap: 0.5rem;
+/* Brand pushes everything else to the right */
+.navbar__brand {
+  margin-right: auto !important;
 }
 
+/* Left container: nav links grouped on the right */
+.navbar__items:not(.navbar__items--right) {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.25rem !important;
+}
+
+/* Right container: theme/search - stays fixed width */
 .navbar__items--right {
-  flex: 0 0 auto;
+  flex: 0 0 auto !important;
   justify-content: flex-end;
+  gap: 0.5rem;
+  margin-left: 1rem;
 }
 
 /* ============================================
